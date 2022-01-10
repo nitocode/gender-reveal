@@ -8,10 +8,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "canvas-confetti": "^1.4.0",
+    "daisyui": "^1.16.2",
+    "vue": "^3.2.25",
+    "vue-i18n": "^9.2.0-beta.22",
+    "vue-router": "^4.0.12"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "sass": "^1.43.4",
+    "tailwindcss": "^2.2.19",
     "vite": "^2.7.2"
   }
 }
