@@ -10,21 +10,50 @@ const route = useRoute()
 
 const isGirl = ref(true)
 
-const instructionText = ref(route.query.it1 ? t(`reveal.instruction.text.${route.query.it1}`) : t(`reveal.instruction.text.default`))
-const pulseText1 = route.query.pt1 ? t(`reveal.pulse.text1.${route.query.pt1}`) : t(`reveal.pulse.text1.default`)
-const pulseText2 = route.query.pt2 ? t(`reveal.pulse.text2.${route.query.pt2}`) : t(`reveal.pulse.text2.default`)
-const stepText1 = ref(route.query.st1 ? t(`reveal.step.text1.${route.query.st1}`) : t(`reveal.instruction.text1.default`))
-const stepText2 = ref(route.query.st2 ? t(`reveal.step.text2.${route.query.st2}`) : t(`reveal.instruction.text2.default`))
-const resultText = ref(route.query.rt1 ? t(`reveal.result.text.${route.query.rt1}`) : t(`reveal.result.text.default`))
-const resultSubtitleText = ref(route.query.rst1 ? t(`reveal.result.subtitleText.${route.query.rst1}`) : t(`reveal.result.subtitleText.default`))
-const thanksText = ref(route.query.tt1 ? t(`reveal.thanks.text.${route.query.tt1}`) : t(`reveal.thanks.text.default`))
+const settingsObj = {
+  c11: { type: "color", defaultValue:"78ade0" },
+  c12: { type: "color", defaultValue:"2d6ead" },
+  c21: { type: "color", defaultValue:"dc8ec2" },
+  c22: { type: "color", defaultValue:"c24097" },
+  c31: { type: "color", defaultValue:"c91abe" },
+  it1: { type: "text", defaultValue:"default" },
+  pt1: { type: "text", defaultValue:"default" },
+  pt2: { type: "text", defaultValue:"default" },
+  st1: { type: "text", defaultValue:"default" },
+  st2: { type: "text", defaultValue:"default" },
+  rt1: { type: "text", defaultValue:"default" },
+  rst1: { type: "text", defaultValue:"default" },
+  tt1: { type: "text", defaultValue:"default" },
+}
+const settingsParam = (route.query.s1 || "78ade0,2d6ead,dc8ec2,c24097,c91abe,2,n,n,1,2,1,1,2").split(",")
+
+const setSettingsFromUrl = (params) => {
+  if (params.length !== Object.keys(settingsObj).length) {
+    console.error("Wrong params length: ", params.length)
+    return
+  }
+  Object.keys(settingsObj).forEach((item, index) => {
+    settingsObj[item] = settingsParam[index] === "n" ? settingsObj[item].defaultValue : settingsParam[index]
+  })
+}
+
+setSettingsFromUrl(settingsParam)
+
+const instructionText = ref(t(`reveal.instruction.text.${settingsObj.it1}`))
+const pulseText1 = t(`reveal.pulse.text1.${settingsObj.pt1}`)
+const pulseText2 = t(`reveal.pulse.text2.${settingsObj.pt2}`)
+const stepText1 = ref(t(`reveal.step.text1.${settingsObj.st1}`))
+const stepText2 = ref(t(`reveal.step.text2.${settingsObj.st2}`))
+const resultText = ref(t(`reveal.result.text.${settingsObj.rt1}`))
+const resultSubtitleText = ref(t(`reveal.result.subtitleText.${settingsObj.rst1}`))
+const thanksText = ref(t(`reveal.thanks.text.${settingsObj.tt1}`))
 
 
-const colorBoy = route.query.c1 ? `#${route.query.c1}` : "#78ade0"
-const colorBoy2 = route.query.c11 ? `#${route.query.c11}` : "#2d6ead"
-const colorGirl = route.query.c2 ? `#${route.query.c2}` : "#dc8ec2"
-const colorGirl2 = route.query.c22 ? `#${route.query.c22}` : "#c24097"
-const colorMix = route.query.c3 ? `#${route.query.c3}` : "#c91abe"
+const colorBoy = `#${settingsObj.c11}`
+const colorBoy2 = `#${settingsObj.c12}`
+const colorGirl = `#${settingsObj.c21}`
+const colorGirl2 = `#${settingsObj.c22}`
+const colorMix = `#${settingsObj.c31}`
 
 const basedColors = [
   { colorName: "pink", colorHex: colorGirl, colorsGroup: [colorBoy, colorBoy2]},
