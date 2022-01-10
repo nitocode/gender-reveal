@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/*body {
+body {
   font-family: 'SnigletRegular', Verdana, Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
-}*/
+}
 
 @media screen and (max-width: 380px) and (-webkit-min-device-pixel-ratio: 2) {
   body {

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('/fonts/DancingScriptRegular.eot');
+  src: url('/fonts/DancingScriptRegular.eot') format('embedded-opentype'),
+       url('/fonts/DancingScriptRegular.woff2') format('woff2'),
+       url('/fonts/DancingScriptRegular.woff') format('woff'),
+       url('/fonts/DancingScriptRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('/fonts/DancingScriptBold.eot');
+  src: url('/fonts/DancingScriptBold.eot') format('embedded-opentype'),
+       url('/fonts/DancingScriptBold.woff2') format('woff2'),
+       url('/fonts/DancingScriptBold.woff') format('woff'),
+       url('/fonts/DancingScriptBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.dancing-script {
+  font-family: 'Dancing Script', Verdana, Arial ;
+}
+
+@font-face {
+  font-family: 'SnigletRegular';
+  src: url('/fonts/SnigletRegular.eot');
+  src: url('/fonts/SnigletRegular.eot') format('embedded-opentype'),
+       url('/fonts/SnigletRegular.woff2') format('woff2'),
+       url('/fonts/SnigletRegular.woff') format('woff'),
+       url('/fonts/SnigletRegular.ttf') format('truetype');
+}
